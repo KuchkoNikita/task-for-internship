@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
 const spread = (callback, arr) => {
-    return callback(...arr);
-};
+  return callback(...arr)
+}
 
-export default spread;
+export default spread

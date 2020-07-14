@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
-const add = n => x => n + x;
+const add = n => x => n + x
 
-export default add;
+export default add

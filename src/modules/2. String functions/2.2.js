@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
 // 2.2. Валютный формат [просто]
 
-const  formatCurrency = (amount) => {
-    return amount;
-};
+const formatCurrency = (amount) => {
+  return amount
+}
 
-export default formatCurrency;
+export default formatCurrency

@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
 const reduce = (arr, callback, initialValue) => {
-    arr.forEach(element => {
-        initialValue = callback(initialValue, element);
-    });
+  arr.forEach(element => {
+    initialValue = callback(initialValue, element)
+  })
 
-    return initialValue;
-};
+  return initialValue
+}
 
-export default reduce;
+export default reduce

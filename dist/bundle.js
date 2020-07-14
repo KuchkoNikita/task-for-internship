@@ -1,1 +1,401 @@
-!function(o){var e={};function l(n){if(e[n])return e[n].exports;var r=e[n]={i:n,l:!1,exports:{}};return o[n].call(r.exports,r,r.exports,l),r.l=!0,r.exports}l.m=o,l.c=e,l.d=function(o,e,n){l.o(o,e)||Object.defineProperty(o,e,{enumerable:!0,get:n})},l.r=function(o){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(o,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(o,"__esModule",{value:!0})},l.t=function(o,e){if(1&e&&(o=l(o)),8&e)return o;if(4&e&&"object"==typeof o&&o&&o.__esModule)return o;var n=Object.create(null);if(l.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:o}),2&e&&"string"!=typeof o)for(var r in o)l.d(n,r,function(e){return o[e]}.bind(null,r));return n},l.n=function(o){var e=o&&o.__esModule?function(){return o.default}:function(){return o};return l.d(e,"a",e),e},l.o=function(o,e){return Object.prototype.hasOwnProperty.call(o,e)},l.p="",l(l.s=0)}([function(o,e,l){"use strict";l.r(e);var n=o=>{const e=o.reduce((o,e)=>o+e.reduce((o,e)=>o+e),0);return Math.floor(e/o.length)};var r=o=>{const e=[];for(let l=0;l<3;l++){let l=Math.max(...o);e.push(l),o.splice(o.indexOf(l,0),1)}return e.reduce((o,e)=>o+e,0)};var t=o=>o.sort().reverse().join("");var s=o=>{const e=[],l=[];for(let l=0;l<o;l++)e.push(l+1);for(let n=0;n<o;n++)e.push(...e.splice(0,1)),l[n]=e.slice();return l};var c=(o,e,l)=>{let n=0;for(let r=0;r<l;r++)n=n+o+r*e;return n};var a=o=>{let e=0;for(let l=0;l<o.length;l++)for(let n=0;n<o[l].length;n++)l===n&&(e+=o[l][n]);return e};var u=(o,e)=>o.replace(/^[1-9]\s|[,.]/,"").replace(/ +/g,""+e).trim().toLowerCase();var g=o=>o;var p=o=>o.replace(/\s+|\W+|\d+|[_!&,.]+/g,"").split("").map(o=>o).sort(([o],[e])=>o.toLowerCase()<e.toLowerCase()?-1:1).join("");var i=o=>{const e={I:1,V:5,X:10,L:50,C:100,D:500,M:1e3};return o=o.split("").map(o=>{for(const l in e)o===l&&(o=e[l]);return o}).reduce((e,l,n)=>n>=o.indexOf(Math.max(...o))?e+l:e-l)};var d=o=>{const e={};let l=0;const n=o.toLowerCase();for(let o=0;o<n.length;o++)e[n[o]]?e[n[o]]<2&&(e[n[o]]+=1,l++):e[n[o]]=1;return l};var f=o=>o.replace(/\s+|\W+|\d+|[_!&,.]+/g,"").toLowerCase().split("").map(o=>o.charCodeAt()-96).join(" ");var m=o=>[].concat(...o).sort();var v=o=>e=>o+e;var h=o=>e=>o.map(o=>o*e);var b=o=>(o=new Set(o),[...o].reduce((o,e)=>o+e,0));var C=(o,e,l)=>(o.forEach(o=>{l=e(l,o)}),l);var y=(...o)=>e=>o.reverse().reduce((o,e)=>e(o),e);var S=(o,e)=>o(...e);var E=(o,e,l)=>{const n=[];for(let r=0;r<e.length&&l.length;r++)n[r]=o(e[r],l[r]);return n};const w=(o,e,l,n=o)=>o+l<=e?w(o+=l,e,l,n+=o):n;var O=w;let x=null;var A=class{constructor(o){return x||(x=this),this.name=o,x}};String.prototype.customUpperCase=function(){const o=this.split("").map(o=>o.charCodeAt()>=97&&o.charCodeAt()<=122?o.charCodeAt()-32:o.charCodeAt());return String.fromCharCode(...o)};var M=(o,e)=>(o.sort((o,l)=>o[e]>l[e]?-1:o[e]<l[e]?1:0),o);console.log("1.1 sumAverage ",n([[1,2,2,1],[2,2,2,1]])),console.log("1.2 maxTripletSum",r([3,2,6,8,2,3])),console.log("1.3 biggest",t([3,30,34,5,9])),console.log("1.3 biggest",t([1,2,3])),console.group("1.4 pattern"),console.log(s(3)),console.log(s(6)),console.groupEnd(),console.log("1.5 arithmeticSequenceSum",c(2,3,5)),console.group("1.6 diagonalSum"),console.log(a([[5,9,1,0],[8,7,2,3],[1,4,1,9],[2,3,8,2]])),console.log(a([[1,2],[3,4]])),console.groupEnd(),console.group("2.1 toMachineName"),console.log(u("Hello, my name is Andrew","-")),console.log(u("Lorem ipsum sit       DOLOR","-")),console.log(u("3 basics and 1 advance","-")),console.groupEnd(),console.group("2.2 formatCurrency"),console.log(g(2546.2562)),console.log(g("1500.342626")),console.log(g(100.2134)),console.groupEnd(),console.group("2.3 alphabetized"),console.log(p("The Holy Bible.")),console.log(p("Hello!!!!!!!!!!!!!!!!!!!!!!")),console.groupEnd(),console.group("2.4 romanToNumber"),console.log(i("I")),console.log(i("C")),console.log(i("CI")),console.log(i("XXI")),console.log(i("IX")),console.groupEnd(),console.group("2.5 countDuplicates"),console.log(d("abcde")),console.log(d("aabbcde")),console.log(d("aabBcde")),console.log(d("indivisibility")),console.log(d("aA11")),console.groupEnd(),console.log("2.6 replaceWithAlphPositions",f("The sunset sets at twelve o’clock")),console.log("3.1 flattenAndSort",m([[3,2,1],[4,6,5],[],[9,7,8]]));const j=v(1),L=v(3);console.group("3.2 add"),console.log("3.2 addOne(3); : ",j(3)),console.log("3.2 addThree(3); : ",L(3)),console.groupEnd(),console.log("3.3 multiplyAll: ",h([1,2,3])(2)),console.group("3.4 uniqueSum"),console.log(b([1,2,3])),console.log(b([1,3,8,1,8])),console.log(b([-1,-1,5,2,-7])),console.log(b([])),console.groupEnd(),console.log("3.5 Reduce",C([1,2,3,4],(o,e)=>o*e,1));console.log("3.6 compose: ",y(o=>o+1,o=>o+2,o=>o+3)(1));console.log("4.1 spread",S((o,e)=>({num:o,bool:e}),[1,!0])),console.group("4.2 zipWith"),console.log(E(Math.pow,[10,10,10,10],[0,1,2,3])),console.log(E(Math.max,[1,4,7,1,4,7],[4,7,1,4,7,1])),console.groupEnd(),console.group("5.1 sequenceSum"),console.log(O(2,2,2)),console.log(O(2,6,2)),console.log(O(1,5,1)),console.log(O(1,5,3)),console.groupEnd(),console.group("5.2 stringify");const _=new A,T=new A;_.name="Singleton",console.group("6.1 Singleton"),console.log(_===T),console.log(T.name),console.groupEnd(),console.group("6.2 customUpperCase"),console.log("abc".customUpperCase()),console.log("Hello, world!".customUpperCase()),console.groupEnd();let P=[{a:1,b:3},{a:3,b:2},{a:2,b:40},{a:4,b:12}];P=M(P,"a"),console.log("7.1 customSort",P)}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_1_Array_functions_1_1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/1. Array functions/1.1 */ \"./src/modules/1. Array functions/1.1.js\");\n/* harmony import */ var _modules_1_Array_functions_1_2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/1. Array functions/1.2 */ \"./src/modules/1. Array functions/1.2.js\");\n/* harmony import */ var _modules_1_Array_functions_1_3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/1. Array functions/1.3 */ \"./src/modules/1. Array functions/1.3.js\");\n/* harmony import */ var _modules_1_Array_functions_1_4__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/1. Array functions/1.4 */ \"./src/modules/1. Array functions/1.4.js\");\n/* harmony import */ var _modules_1_Array_functions_1_5__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/1. Array functions/1.5 */ \"./src/modules/1. Array functions/1.5.js\");\n/* harmony import */ var _modules_1_Array_functions_1_6__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/1. Array functions/1.6 */ \"./src/modules/1. Array functions/1.6.js\");\n/* harmony import */ var _modules_2_String_functions_2_1__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/2. String functions/2.1 */ \"./src/modules/2. String functions/2.1.js\");\n/* harmony import */ var _modules_2_String_functions_2_2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/2. String functions/2.2 */ \"./src/modules/2. String functions/2.2.js\");\n/* harmony import */ var _modules_2_String_functions_2_3__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/2. String functions/2.3 */ \"./src/modules/2. String functions/2.3.js\");\n/* harmony import */ var _modules_2_String_functions_2_4__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/2. String functions/2.4 */ \"./src/modules/2. String functions/2.4.js\");\n/* harmony import */ var _modules_2_String_functions_2_5__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/2. String functions/2.5 */ \"./src/modules/2. String functions/2.5.js\");\n/* harmony import */ var _modules_2_String_functions_2_6__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/2. String functions/2.6 */ \"./src/modules/2. String functions/2.6.js\");\n/* harmony import */ var _modules_3_Algorithms_and_functional_programming_3_1__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/3. Algorithms and functional programming/3.1 */ \"./src/modules/3. Algorithms and functional programming/3.1.js\");\n/* harmony import */ var _modules_3_Algorithms_and_functional_programming_3_2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/3. Algorithms and functional programming/3.2 */ \"./src/modules/3. Algorithms and functional programming/3.2.js\");\n/* harmony import */ var _modules_3_Algorithms_and_functional_programming_3_3__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/3. Algorithms and functional programming/3.3 */ \"./src/modules/3. Algorithms and functional programming/3.3.js\");\n/* harmony import */ var _modules_3_Algorithms_and_functional_programming_3_4__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/3. Algorithms and functional programming/3.4 */ \"./src/modules/3. Algorithms and functional programming/3.4.js\");\n/* harmony import */ var _modules_3_Algorithms_and_functional_programming_3_5__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/3. Algorithms and functional programming/3.5 */ \"./src/modules/3. Algorithms and functional programming/3.5.js\");\n/* harmony import */ var _modules_3_Algorithms_and_functional_programming_3_6__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modules/3. Algorithms and functional programming/3.6 */ \"./src/modules/3. Algorithms and functional programming/3.6.js\");\n/* harmony import */ var _modules_4_Higher_Order_Functions_4_1__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./modules/4. Higher Order Functions/4.1 */ \"./src/modules/4. Higher Order Functions/4.1.js\");\n/* harmony import */ var _modules_4_Higher_Order_Functions_4_2__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./modules/4. Higher Order Functions/4.2 */ \"./src/modules/4. Higher Order Functions/4.2.js\");\n/* harmony import */ var _modules_5_Recursion_5_1__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./modules/5. Recursion/5.1 */ \"./src/modules/5. Recursion/5.1.js\");\n/* harmony import */ var _modules_5_Recursion_5_2__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./modules/5. Recursion/5.2 */ \"./src/modules/5. Recursion/5.2.js\");\n/* harmony import */ var _modules_6_Classes_and_Patterns_6_1__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./modules/6. Classes and Patterns/6.1 */ \"./src/modules/6. Classes and Patterns/6.1.js\");\n/* harmony import */ var _modules_6_Classes_and_Patterns_6_2__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./modules/6. Classes and Patterns/6.2 */ \"./src/modules/6. Classes and Patterns/6.2.js\");\n/* harmony import */ var _modules_7_Sort_7_1__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./modules/7. Sort/7.1 */ \"./src/modules/7. Sort/7.1.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n// 1.1 Усредненная сумма массивов [очень просто]\r\nconsole.log('1.1 sumAverage ', Object(_modules_1_Array_functions_1_1__WEBPACK_IMPORTED_MODULE_0__[\"default\"])([[1, 2, 2, 1], [2, 2, 2, 1]]))\r\n\r\n// 1.2. Сумма трех максимальных значений [очень просто]\r\nconsole.log('1.2 maxTripletSum', Object(_modules_1_Array_functions_1_2__WEBPACK_IMPORTED_MODULE_1__[\"default\"])([3, 2, 6, 8, 2, 3]))\r\n\r\n// 1.3. Сортировка к максимальному значению [просто]\r\nconsole.log('1.3 biggest', Object(_modules_1_Array_functions_1_3__WEBPACK_IMPORTED_MODULE_2__[\"default\"])([3, 30, 34, 5, 9]))\r\nconsole.log('1.3 biggest', Object(_modules_1_Array_functions_1_3__WEBPACK_IMPORTED_MODULE_2__[\"default\"])([1, 2, 3]))\r\n\r\n// 1.4. Комбинации сдвига [просто]\r\nconsole.group('1.4 pattern')\r\nconsole.log(Object(_modules_1_Array_functions_1_4__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(3))\r\nconsole.log(Object(_modules_1_Array_functions_1_4__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(6))\r\nconsole.groupEnd()\r\n\r\n// 1.5. Арифметическая последовательность - сумма из n элементов [просто]\r\nconsole.log('1.5 arithmeticSequenceSum', Object(_modules_1_Array_functions_1_5__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(2, 3, 5))\r\n\r\n// 1.6. Диагональная сумма матрицы [просто]\r\nconsole.group('1.6 diagonalSum')\r\nconsole.log(\r\n  Object(_modules_1_Array_functions_1_6__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(\r\n    [\r\n      [5, 9, 1, 0],\r\n      [8, 7, 2, 3],\r\n      [1, 4, 1, 9],\r\n      [2, 3, 8, 2]\r\n    ]\r\n  )\r\n)\r\n\r\nconsole.log(\r\n  Object(_modules_1_Array_functions_1_6__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(\r\n    [\r\n      [1, 2],\r\n      [3, 4]\r\n    ]\r\n  )\r\n)\r\nconsole.groupEnd()\r\n\r\n// ####################################################################\r\n\r\n// 2.1. Машиночитаемые имена [очень просто]\r\nconsole.group('2.1 toMachineName')\r\nconsole.log(Object(_modules_2_String_functions_2_1__WEBPACK_IMPORTED_MODULE_6__[\"default\"])('Hello, my name is Andrew', '-'))\r\nconsole.log(Object(_modules_2_String_functions_2_1__WEBPACK_IMPORTED_MODULE_6__[\"default\"])('Lorem ipsum sit       DOLOR', '-'))\r\nconsole.log(Object(_modules_2_String_functions_2_1__WEBPACK_IMPORTED_MODULE_6__[\"default\"])('3 basics and 1 advance', '-'))\r\nconsole.groupEnd()\r\n\r\n// 2.2. Валютный формат [просто]\r\nconsole.group('2.2 formatCurrency')\r\nconsole.log(Object(_modules_2_String_functions_2_2__WEBPACK_IMPORTED_MODULE_7__[\"default\"])(2546.2562))\r\nconsole.log(Object(_modules_2_String_functions_2_2__WEBPACK_IMPORTED_MODULE_7__[\"default\"])('1500.342626'))\r\nconsole.log(Object(_modules_2_String_functions_2_2__WEBPACK_IMPORTED_MODULE_7__[\"default\"])(100.2134))\r\nconsole.groupEnd()\r\n\r\n// 2.3. Алфавитизация [очень просто]\r\nconsole.group('2.3 alphabetized')\r\nconsole.log(Object(_modules_2_String_functions_2_3__WEBPACK_IMPORTED_MODULE_8__[\"default\"])('The Holy Bible.'))\r\nconsole.log(Object(_modules_2_String_functions_2_3__WEBPACK_IMPORTED_MODULE_8__[\"default\"])('Hello!!!!!!!!!!!!!!!!!!!!!!'))\r\nconsole.groupEnd()\r\n\r\n// 2.4. Декодирование римских цифр [просто]\r\nconsole.group('2.4 romanToNumber')\r\nconsole.log(Object(_modules_2_String_functions_2_4__WEBPACK_IMPORTED_MODULE_9__[\"default\"])('I'))\r\nconsole.log(Object(_modules_2_String_functions_2_4__WEBPACK_IMPORTED_MODULE_9__[\"default\"])('C'))\r\nconsole.log(Object(_modules_2_String_functions_2_4__WEBPACK_IMPORTED_MODULE_9__[\"default\"])('CI'))\r\nconsole.log(Object(_modules_2_String_functions_2_4__WEBPACK_IMPORTED_MODULE_9__[\"default\"])('XXI'))\r\nconsole.log(Object(_modules_2_String_functions_2_4__WEBPACK_IMPORTED_MODULE_9__[\"default\"])('IX'))\r\nconsole.groupEnd()\r\n\r\n// 2.5. Декодирование римских цифр [просто]\r\nconsole.group('2.5 countDuplicates')\r\nconsole.log(Object(_modules_2_String_functions_2_5__WEBPACK_IMPORTED_MODULE_10__[\"default\"])('abcde'))\r\nconsole.log(Object(_modules_2_String_functions_2_5__WEBPACK_IMPORTED_MODULE_10__[\"default\"])('aabbcde'))\r\nconsole.log(Object(_modules_2_String_functions_2_5__WEBPACK_IMPORTED_MODULE_10__[\"default\"])('aabBcde'))\r\nconsole.log(Object(_modules_2_String_functions_2_5__WEBPACK_IMPORTED_MODULE_10__[\"default\"])('indivisibility'))\r\nconsole.log(Object(_modules_2_String_functions_2_5__WEBPACK_IMPORTED_MODULE_10__[\"default\"])('aA11'))\r\nconsole.groupEnd()\r\n\r\n// 2.6. Замена букв на их позиции [просто]\r\nconsole.log('2.6 replaceWithAlphPositions', Object(_modules_2_String_functions_2_6__WEBPACK_IMPORTED_MODULE_11__[\"default\"])('The sunset sets at twelve o’clock'))\r\n\r\n// ####################################################################\r\n\r\n// 3. Algorithms and functional programming\r\n\r\n// 3.1. Сведение и сортировка массива [очень просто]\r\nconsole.log('3.1 flattenAndSort', Object(_modules_3_Algorithms_and_functional_programming_3_1__WEBPACK_IMPORTED_MODULE_12__[\"default\"])([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]))\r\n\r\n// 3.2. Функциональное сложение [просто]\r\nconst addOne = Object(_modules_3_Algorithms_and_functional_programming_3_2__WEBPACK_IMPORTED_MODULE_13__[\"default\"])(1)\r\nconst addThree = Object(_modules_3_Algorithms_and_functional_programming_3_2__WEBPACK_IMPORTED_MODULE_13__[\"default\"])(3)\r\n\r\nconsole.group('3.2 add')\r\nconsole.log('3.2 addOne(3); : ', addOne(3))\r\nconsole.log('3.2 addThree(3); : ', addThree(3))\r\nconsole.groupEnd()\r\n\r\n// 3.3. Умножение всех элементов массива [просто]\r\nconsole.log('3.3 multiplyAll: ', Object(_modules_3_Algorithms_and_functional_programming_3_3__WEBPACK_IMPORTED_MODULE_14__[\"default\"])([1, 2, 3])(2))\r\n\r\n// 3.4. Сумма уникальных значений [просто, имеет различные решения]\r\nconsole.group('3.4 uniqueSum')\r\nconsole.log(Object(_modules_3_Algorithms_and_functional_programming_3_4__WEBPACK_IMPORTED_MODULE_15__[\"default\"])([1, 2, 3]))\r\nconsole.log(Object(_modules_3_Algorithms_and_functional_programming_3_4__WEBPACK_IMPORTED_MODULE_15__[\"default\"])([1, 3, 8, 1, 8]))\r\nconsole.log(Object(_modules_3_Algorithms_and_functional_programming_3_4__WEBPACK_IMPORTED_MODULE_15__[\"default\"])([-1, -1, 5, 2, -7]))\r\nconsole.log(Object(_modules_3_Algorithms_and_functional_programming_3_4__WEBPACK_IMPORTED_MODULE_15__[\"default\"])([]))\r\nconsole.groupEnd()\r\n\r\n// 3.5. Reduce [просто +]\r\nconsole.log('3.5 Reduce', Object(_modules_3_Algorithms_and_functional_programming_3_5__WEBPACK_IMPORTED_MODULE_16__[\"default\"])(\r\n  [1, 2, 3, 4],\r\n  (acc, value) => acc * value,\r\n  1\r\n))\r\n\r\n// 3.6. Функциональная композиция [не просто]\r\n\r\nconst f = (a) => a + 1\r\nconst g = (a) => a + 2\r\nconst h = (a) => a + 3\r\nconsole.log('3.6 compose: ', Object(_modules_3_Algorithms_and_functional_programming_3_6__WEBPACK_IMPORTED_MODULE_17__[\"default\"])(f, g, h)(1))\r\n\r\n// ##################################################\r\n// 4. Функции высшего порядка\r\n\r\n// 4.1. Распаковка аргументов [просто]\r\nconst fn = (num, bool) => {\r\n  return { num, bool }\r\n}\r\nconsole.log('4.1 spread', Object(_modules_4_Higher_Order_Functions_4_1__WEBPACK_IMPORTED_MODULE_18__[\"default\"])(fn, [1, true]))\r\n\r\n// 4.2. ZipWith [просто +]\r\nconsole.group('4.2 zipWith')\r\nconsole.log(Object(_modules_4_Higher_Order_Functions_4_2__WEBPACK_IMPORTED_MODULE_19__[\"default\"])(Math.pow, [10, 10, 10, 10], [0, 1, 2, 3]))\r\nconsole.log(Object(_modules_4_Higher_Order_Functions_4_2__WEBPACK_IMPORTED_MODULE_19__[\"default\"])(Math.max, [1, 4, 7, 1, 4, 7], [4, 7, 1, 4, 7, 1]))\r\nconsole.groupEnd()\r\n\r\n// 5. Рекурсия\r\n// 5.1. Сумма последовательности [просто]\r\nconsole.group('5.1 sequenceSum')\r\nconsole.log(Object(_modules_5_Recursion_5_1__WEBPACK_IMPORTED_MODULE_20__[\"default\"])(2, 2, 2))\r\nconsole.log(Object(_modules_5_Recursion_5_1__WEBPACK_IMPORTED_MODULE_20__[\"default\"])(2, 6, 2))\r\nconsole.log(Object(_modules_5_Recursion_5_1__WEBPACK_IMPORTED_MODULE_20__[\"default\"])(1, 5, 1))\r\nconsole.log(Object(_modules_5_Recursion_5_1__WEBPACK_IMPORTED_MODULE_20__[\"default\"])(1, 5, 3))\r\nconsole.groupEnd()\r\n\r\n// 5.2. Связанный список в строку [просто]\r\nclass Node {\r\n  constructor (data, next = null) {\r\n    this.data = data\r\n    this.next = next\r\n  }\r\n}\r\n\r\nconsole.group('5.2 stringify')\r\nconsole.log(Object(_modules_5_Recursion_5_2__WEBPACK_IMPORTED_MODULE_21__[\"default\"])(new Node(1, new Node(2, new Node(3)))))\r\nconsole.log(Object(_modules_5_Recursion_5_2__WEBPACK_IMPORTED_MODULE_21__[\"default\"])(new Node(0, new Node(1, new Node(4, new Node(9, new Node(16)))))))\r\nconsole.groupEnd()\r\n\r\n// 6. Классы и паттерны\r\n// 6.1. Singleton [просто]\r\nconst o1 = new _modules_6_Classes_and_Patterns_6_1__WEBPACK_IMPORTED_MODULE_22__[\"default\"]()\r\nconst o2 = new _modules_6_Classes_and_Patterns_6_1__WEBPACK_IMPORTED_MODULE_22__[\"default\"]()\r\n\r\no1.name = 'Singleton'\r\n\r\nconsole.group('6.1 Singleton')\r\nconsole.log(o1 === o2)\r\nconsole.log(o2.name)\r\nconsole.groupEnd()\r\n\r\n// 6.2. Расширение String [просто]\r\nconsole.group('6.2 customUpperCase')\r\nconsole.log('abc'.customUpperCase())\r\nconsole.log('Hello, world!'.customUpperCase())\r\nconsole.groupEnd()\r\n\r\n// 7. Сортировка\r\n// 7.1. Сортированный список объектов [очень просто]\r\nlet arr = [\r\n  { a: 1, b: 3 },\r\n  { a: 3, b: 2 },\r\n  { a: 2, b: 40 },\r\n  { a: 4, b: 12 }\r\n]\r\n\r\narr = Object(_modules_7_Sort_7_1__WEBPACK_IMPORTED_MODULE_24__[\"default\"])(arr, 'a')\r\nconsole.log('7.1 customSort', arr)\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/1. Array functions/1.1.js":
+/*!***********************************************!*\
+  !*** ./src/modules/1. Array functions/1.1.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\n// 1.1 Усредненная сумма массивов [очень просто]\r\n\r\nconst sumAverage = (arr) => {\r\n  const result = arr.reduce((sum, current) => {\r\n    const arrayResult = current.reduce((sum, number) => {\r\n      return sum + number\r\n    })\r\n\r\n    return sum + arrayResult\r\n  }, 0)\r\n\r\n  return Math.floor(result / arr.length)\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (sumAverage);\r\n\n\n//# sourceURL=webpack:///./src/modules/1._Array_functions/1.1.js?");
+
+/***/ }),
+
+/***/ "./src/modules/1. Array functions/1.2.js":
+/*!***********************************************!*\
+  !*** ./src/modules/1. Array functions/1.2.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\n// 1.2. Сумма трех максимальных значений [очень просто]\r\n\r\nconst maxTripletSum = (arr) => {\r\n  const resultArr = []\r\n\r\n  for (let i = 0; i < 3; i++) {\r\n    const maxElem = Math.max(...arr)\r\n    resultArr.push(maxElem)\r\n    arr.splice(arr.indexOf(maxElem, 0), 1)\r\n  }\r\n\r\n  return resultArr.reduce((sum, current) => sum + current, 0)\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (maxTripletSum);\n\n\n//# sourceURL=webpack:///./src/modules/1._Array_functions/1.2.js?");
+
+/***/ }),
+
+/***/ "./src/modules/1. Array functions/1.3.js":
+/*!***********************************************!*\
+  !*** ./src/modules/1. Array functions/1.3.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst biggest = (nums) => nums.sort().reverse().join('')\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (biggest);\r\n\n\n//# sourceURL=webpack:///./src/modules/1._Array_functions/1.3.js?");
+
+/***/ }),
+
+/***/ "./src/modules/1. Array functions/1.4.js":
+/*!***********************************************!*\
+  !*** ./src/modules/1. Array functions/1.4.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst pattern = (amount) => {\r\n  const arr = []\r\n  const rezult = []\r\n\r\n  for (let i = 0; i < amount; i++) {\r\n    arr.push(i + 1)\r\n  }\r\n\r\n  for (let i = 0; i < amount; i++) {\r\n    arr.push(...arr.splice(0, 1))\r\n    rezult[i] = arr.slice()\r\n  }\r\n\r\n  return rezult\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (pattern);\r\n\n\n//# sourceURL=webpack:///./src/modules/1._Array_functions/1.4.js?");
+
+/***/ }),
+
+/***/ "./src/modules/1. Array functions/1.5.js":
+/*!***********************************************!*\
+  !*** ./src/modules/1. Array functions/1.5.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst arithmeticSequenceSum = (a, r, n) => {\r\n  let result = 0\r\n  for (let i = 0; i < n; i++) {\r\n    result = (result + a) + (i * r)\r\n  }\r\n  return result\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (arithmeticSequenceSum);\r\n\n\n//# sourceURL=webpack:///./src/modules/1._Array_functions/1.5.js?");
+
+/***/ }),
+
+/***/ "./src/modules/1. Array functions/1.6.js":
+/*!***********************************************!*\
+  !*** ./src/modules/1. Array functions/1.6.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst diagonalSum = (matrix) => {\r\n  let rezult = 0\r\n\r\n  for (let i = 0; i < matrix.length; i++) {\r\n    for (let j = 0; j < matrix[i].length; j++) {\r\n      if (i === j) rezult += matrix[i][j]\r\n    }\r\n  }\r\n\r\n  return rezult\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (diagonalSum);\r\n\n\n//# sourceURL=webpack:///./src/modules/1._Array_functions/1.6.js?");
+
+/***/ }),
+
+/***/ "./src/modules/2. String functions/2.1.js":
+/*!************************************************!*\
+  !*** ./src/modules/2. String functions/2.1.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\n// 2.1. Машиночитаемые имена [очень просто]\r\n\r\nconst toMachineName = (name, separator) => {\r\n  return name\r\n    .replace(/^[1-9]\\s|[,.]/, '')\r\n    .replace(/ +/g, `${separator}`)\r\n    .trim().toLowerCase()\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (toMachineName);\r\n\n\n//# sourceURL=webpack:///./src/modules/2._String_functions/2.1.js?");
+
+/***/ }),
+
+/***/ "./src/modules/2. String functions/2.2.js":
+/*!************************************************!*\
+  !*** ./src/modules/2. String functions/2.2.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\n// 2.2. Валютный формат [просто]\r\n\r\nconst formatCurrency = (amount) => {\r\n  return amount\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (formatCurrency);\r\n\n\n//# sourceURL=webpack:///./src/modules/2._String_functions/2.2.js?");
+
+/***/ }),
+
+/***/ "./src/modules/2. String functions/2.3.js":
+/*!************************************************!*\
+  !*** ./src/modules/2. String functions/2.3.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst alphabetized = (text) => {\r\n  return text\r\n    .replace(/\\s+|\\W+|\\d+|[_!&,.]+/g, '')\r\n    .split('')\r\n    .map(letter => letter)\r\n    .sort(([a], [b]) => {\r\n      if (a.toLowerCase() < b.toLowerCase()) {\r\n        return -1\r\n      } else {\r\n        return 1\r\n      }\r\n    })\r\n    .join('')\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (alphabetized);\r\n\n\n//# sourceURL=webpack:///./src/modules/2._String_functions/2.3.js?");
+
+/***/ }),
+
+/***/ "./src/modules/2. String functions/2.4.js":
+/*!************************************************!*\
+  !*** ./src/modules/2. String functions/2.4.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst romanToNumber = (number) => {\r\n  const romanNumbers = {\r\n    I: 1,\r\n    V: 5,\r\n    X: 10,\r\n    L: 50,\r\n    C: 100,\r\n    D: 500,\r\n    M: 1000\r\n  }\r\n\r\n  return number = number\r\n    .split('')\r\n    .map(element => {\r\n      for (const key in romanNumbers) {\r\n        if (element === key) {\r\n          element = romanNumbers[key]\r\n        }\r\n      }\r\n      return element\r\n    })\r\n    .reduce((accumulator, currentValue, index) => {\r\n      if (index >= number.indexOf(Math.max(...number))) return accumulator + currentValue\r\n      else return accumulator - currentValue\r\n    })\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (romanToNumber);\n\n\n//# sourceURL=webpack:///./src/modules/2._String_functions/2.4.js?");
+
+/***/ }),
+
+/***/ "./src/modules/2. String functions/2.5.js":
+/*!************************************************!*\
+  !*** ./src/modules/2. String functions/2.5.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst countDuplicates = (text) => {\r\n  const myObj = {}\r\n  let counter = 0\r\n  const str = text.toLowerCase()\r\n  for (let i = 0; i < str.length; i++) {\r\n    if (!myObj[str[i]]) {\r\n      myObj[str[i]] = 1\r\n    } else if (myObj[str[i]] < 2) {\r\n      myObj[str[i]] += 1\r\n      counter++\r\n    }\r\n  }\r\n  return counter\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (countDuplicates);\n\n\n//# sourceURL=webpack:///./src/modules/2._String_functions/2.5.js?");
+
+/***/ }),
+
+/***/ "./src/modules/2. String functions/2.6.js":
+/*!************************************************!*\
+  !*** ./src/modules/2. String functions/2.6.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst replaceWithAlphPositions = (text) => {\r\n  const rezult = text\r\n    .replace(/\\s+|\\W+|\\d+|[_!&,.]+/g, '')\r\n    .toLowerCase()\r\n    .split('')\r\n    .map(letter => letter.charCodeAt() - 96)\r\n    .join(' ')\r\n  return rezult\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (replaceWithAlphPositions);\n\n\n//# sourceURL=webpack:///./src/modules/2._String_functions/2.6.js?");
+
+/***/ }),
+
+/***/ "./src/modules/3. Algorithms and functional programming/3.1.js":
+/*!*********************************************************************!*\
+  !*** ./src/modules/3. Algorithms and functional programming/3.1.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst flattenAndSort = (arr) => [].concat(...arr).sort()\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (flattenAndSort);\n\n\n//# sourceURL=webpack:///./src/modules/3._Algorithms_and_functional_programming/3.1.js?");
+
+/***/ }),
+
+/***/ "./src/modules/3. Algorithms and functional programming/3.2.js":
+/*!*********************************************************************!*\
+  !*** ./src/modules/3. Algorithms and functional programming/3.2.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst add = n => x => n + x\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (add);\n\n\n//# sourceURL=webpack:///./src/modules/3._Algorithms_and_functional_programming/3.2.js?");
+
+/***/ }),
+
+/***/ "./src/modules/3. Algorithms and functional programming/3.3.js":
+/*!*********************************************************************!*\
+  !*** ./src/modules/3. Algorithms and functional programming/3.3.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst multiplyAll = arr => number => arr.map(element => element * number)\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (multiplyAll);\n\n\n//# sourceURL=webpack:///./src/modules/3._Algorithms_and_functional_programming/3.3.js?");
+
+/***/ }),
+
+/***/ "./src/modules/3. Algorithms and functional programming/3.4.js":
+/*!*********************************************************************!*\
+  !*** ./src/modules/3. Algorithms and functional programming/3.4.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst uniqueSum = (arr) => {\r\n  arr = new Set(arr)\r\n  return [...arr].reduce((accumulator, currentValue) => (accumulator + currentValue), 0)\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (uniqueSum);\n\n\n//# sourceURL=webpack:///./src/modules/3._Algorithms_and_functional_programming/3.4.js?");
+
+/***/ }),
+
+/***/ "./src/modules/3. Algorithms and functional programming/3.5.js":
+/*!*********************************************************************!*\
+  !*** ./src/modules/3. Algorithms and functional programming/3.5.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst reduce = (arr, callback, initialValue) => {\r\n  arr.forEach(element => {\r\n    initialValue = callback(initialValue, element)\r\n  })\r\n\r\n  return initialValue\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (reduce);\n\n\n//# sourceURL=webpack:///./src/modules/3._Algorithms_and_functional_programming/3.5.js?");
+
+/***/ }),
+
+/***/ "./src/modules/3. Algorithms and functional programming/3.6.js":
+/*!*********************************************************************!*\
+  !*** ./src/modules/3. Algorithms and functional programming/3.6.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst compose = (...rest) => (a) => {\r\n  return rest.reverse().reduce((accum, item) => {\r\n    return item(accum)\r\n  }, a)\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (compose);\n\n\n//# sourceURL=webpack:///./src/modules/3._Algorithms_and_functional_programming/3.6.js?");
+
+/***/ }),
+
+/***/ "./src/modules/4. Higher Order Functions/4.1.js":
+/*!******************************************************!*\
+  !*** ./src/modules/4. Higher Order Functions/4.1.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst spread = (callback, arr) => {\r\n  return callback(...arr)\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (spread);\n\n\n//# sourceURL=webpack:///./src/modules/4._Higher_Order_Functions/4.1.js?");
+
+/***/ }),
+
+/***/ "./src/modules/4. Higher Order Functions/4.2.js":
+/*!******************************************************!*\
+  !*** ./src/modules/4. Higher Order Functions/4.2.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst zipWith = (fn, a0, a1) => {\r\n  const arrayRezult = []\r\n  for (let i = 0; i < a0.length && a1.length; i++) {\r\n    arrayRezult[i] = fn(a0[i], a1[i])\r\n  }\r\n  return arrayRezult\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (zipWith);\n\n\n//# sourceURL=webpack:///./src/modules/4._Higher_Order_Functions/4.2.js?");
+
+/***/ }),
+
+/***/ "./src/modules/5. Recursion/5.1.js":
+/*!*****************************************!*\
+  !*** ./src/modules/5. Recursion/5.1.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst sequenceSum = (begin, end, step, sum = begin) => {\r\n  if (begin + step <= end) {\r\n    begin += step\r\n    sum += begin\r\n    return sequenceSum(begin, end, step, sum)\r\n  }\r\n  return sum\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (sequenceSum);\n\n\n//# sourceURL=webpack:///./src/modules/5._Recursion/5.1.js?");
+
+/***/ }),
+
+/***/ "./src/modules/5. Recursion/5.2.js":
+/*!*****************************************!*\
+  !*** ./src/modules/5. Recursion/5.2.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst stringify = (list, arr = []) => {\r\n  arr.push(list.data)\r\n  if (list.next !== null) {\r\n    return stringify(list.next, arr)\r\n  } else {\r\n    arr.push(null)\r\n    return arr\r\n  }\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (stringify);\r\n\n\n//# sourceURL=webpack:///./src/modules/5._Recursion/5.2.js?");
+
+/***/ }),
+
+/***/ "./src/modules/6. Classes and Patterns/6.1.js":
+/*!****************************************************!*\
+  !*** ./src/modules/6. Classes and Patterns/6.1.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nlet singletonInstance = null\r\nclass Singleton {\r\n  constructor (name) {\r\n    if (!singletonInstance) {\r\n      singletonInstance = this\r\n    }\r\n    this.name = name\r\n    return singletonInstance\r\n  }\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Singleton);\n\n\n//# sourceURL=webpack:///./src/modules/6._Classes_and_Patterns/6.1.js?");
+
+/***/ }),
+
+/***/ "./src/modules/6. Classes and Patterns/6.2.js":
+/*!****************************************************!*\
+  !*** ./src/modules/6. Classes and Patterns/6.2.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (String.prototype.customUpperCase = function () {\r\n  const rezult = this\r\n    .split('')\r\n    .map(element => {\r\n      if (element.charCodeAt() >= 97 && element.charCodeAt() <= 122) {\r\n        return element.charCodeAt() - 32\r\n      } else {\r\n        return element.charCodeAt()\r\n      }\r\n    })\r\n  return String.fromCharCode(...rezult)\r\n});\n\n\n//# sourceURL=webpack:///./src/modules/6._Classes_and_Patterns/6.2.js?");
+
+/***/ }),
+
+/***/ "./src/modules/7. Sort/7.1.js":
+/*!************************************!*\
+  !*** ./src/modules/7. Sort/7.1.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconst customSort = (list, sortBy) => {\r\n  list.sort((element1, element2) => {\r\n    if (element1[sortBy] > element2[sortBy]) {\r\n      return -1\r\n    } else if (element1[sortBy] < element2[sortBy]) {\r\n      return 1\r\n    } else {\r\n      return 0\r\n    }\r\n  })\r\n  return list\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (customSort);\n\n\n//# sourceURL=webpack:///./src/modules/7._Sort/7.1.js?");
+
+/***/ })
+
+/******/ });

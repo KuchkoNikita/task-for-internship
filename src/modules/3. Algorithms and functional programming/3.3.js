@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
-const multiplyAll = arr => number => arr.map(element => element * number);
+const multiplyAll = arr => number => arr.map(element => element * number)
 
-export default multiplyAll;
+export default multiplyAll
