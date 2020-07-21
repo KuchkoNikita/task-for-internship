@@ -1,6 +1,6 @@
 'use strict'
 
-const romanToNumber = (number) => {
+const romanToNumber = (romanNumber) => {
   const romanNumbers = {
     I: 1,
     V: 5,
@@ -11,20 +11,10 @@ const romanToNumber = (number) => {
     M: 1000
   }
 
-  return number = number
+  return romanNumber
     .split('')
-    .map(element => {
-      for (const key in romanNumbers) {
-        if (element === key) {
-          element = romanNumbers[key]
-        }
-      }
-      return element
-    })
-    .reduce((accumulator, currentValue, index) => {
-      if (index >= number.indexOf(Math.max(...number))) return accumulator + currentValue
-      else return accumulator - currentValue
-    })
+    .map(element => romanNumbers[element])
+    .reduce((accumulator, currentValue, index, arr) => (index >= arr.indexOf(Math.max(...arr))) ? accumulator + currentValue : accumulator - currentValue, 0)
 }
 
 export default romanToNumber

@@ -1,7 +1,8 @@
 'use strict'
 
+// eslint-disable-next-line no-extend-native
 export default String.prototype.customUpperCase = function () {
-  const rezult = this
+  const result = this
     .split('')
     .map(element => {
       if (element.charCodeAt() >= 97 && element.charCodeAt() <= 122) {
@@ -10,5 +11,5 @@ export default String.prototype.customUpperCase = function () {
         return element.charCodeAt()
       }
     })
-  return String.fromCharCode(...rezult)
+  return String.fromCharCode(...result)
 }

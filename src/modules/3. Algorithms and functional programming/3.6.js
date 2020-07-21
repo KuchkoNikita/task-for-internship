@@ -1,7 +1,7 @@
 'use strict'
 
 const compose = (...rest) => (a) => {
-  return rest.reverse().reduce((accum, item) => {
+  return rest.reduceRight((accum, item) => {
     return item(accum)
   }, a)
 }

@@ -3,15 +3,12 @@
 // 1.1 Усредненная сумма массивов [очень просто]
 
 const sumAverage = (arr) => {
-  const result = arr.reduce((sum, current) => {
-    const arrayResult = current.reduce((sum, number) => {
-      return sum + number
-    })
-
+  const sumNumbers = arr.reduce((sum, current) => {
+    const arrayResult = current.reduce((sum, number) => sum + number)
     return sum + arrayResult
   }, 0)
 
-  return Math.floor(result / arr.length)
+  return Math.floor(sumNumbers / arr.length)
 }
 
 export default sumAverage

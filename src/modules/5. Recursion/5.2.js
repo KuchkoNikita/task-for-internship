@@ -2,10 +2,10 @@
 
 const stringify = (list, arr = []) => {
   arr.push(list.data)
-  if (list.next !== null) {
+  if (list.next) {
     return stringify(list.next, arr)
   } else {
-    arr.push(null)
+    arr.push(list.next)
     return arr
   }
 }

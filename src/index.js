@@ -27,10 +27,12 @@ import zipWith from './modules/4. Higher Order Functions/4.2'
 import sequenceSum from './modules/5. Recursion/5.1'
 import stringify from './modules/5. Recursion/5.2'
 
-import Singleton from './modules/6. Classes and Patterns/6.1'
+import { SingletonES6, SingletonES5 } from './modules/6. Classes and Patterns/6.1'
 import {} from './modules/6. Classes and Patterns/6.2'
 
 import customSort from './modules/7. Sort/7.1'
+
+import createArray from './modules/additional-task/additional-task'
 // 1.1 Усредненная сумма массивов [очень просто]
 console.log('1.1 sumAverage ', sumAverage([[1, 2, 2, 1], [2, 2, 2, 1]]))
 
@@ -169,7 +171,7 @@ console.log('4.1 spread', spread(fn, [1, true]))
 // 4.2. ZipWith [просто +]
 console.group('4.2 zipWith')
 console.log(zipWith(Math.pow, [10, 10, 10, 10], [0, 1, 2, 3]))
-console.log(zipWith(Math.max, [1, 4, 7, 1, 4, 7], [4, 7, 1, 4, 7, 1]))
+console.log(zipWith(Math.max, [1, 4, 7, 1, 4, 7, 8], [4, 7, 1, 4, 7, 1]))
 console.groupEnd()
 
 // 5. Рекурсия
@@ -196,14 +198,24 @@ console.groupEnd()
 
 // 6. Классы и паттерны
 // 6.1. Singleton [просто]
-const o1 = new Singleton()
-const o2 = new Singleton()
+const o1 = new SingletonES6()
+const o2 = new SingletonES6()
 
 o1.name = 'Singleton'
 
-console.group('6.1 Singleton')
+console.group('6.1 SingletonES6')
 console.log(o1 === o2)
 console.log(o2.name)
+console.groupEnd()
+
+const singleton1 = SingletonES5.getInstance()
+const singleton2 = SingletonES5.getInstance()
+
+singleton1.setName('Singleton')
+
+console.group('6.1 SingletonES5')
+console.log(singleton1 === singleton2)
+console.log(singleton2.getName())
 console.groupEnd()
 
 // 6.2. Расширение String [просто]
@@ -223,3 +235,8 @@ let arr = [
 
 arr = customSort(arr, 'a')
 console.log('7.1 customSort', arr)
+
+console.group('additional-task')
+console.log(createArray(10, 2, 1))
+console.log(createArray(10, 2, () => 5))
+console.groupEnd()

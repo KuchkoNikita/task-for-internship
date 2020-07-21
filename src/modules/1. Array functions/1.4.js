@@ -1,19 +1,14 @@
 'use strict'
 
 const pattern = (amount) => {
-  const arr = []
-  const rezult = []
-
-  for (let i = 0; i < amount; i++) {
-    arr.push(i + 1)
-  }
-
-  for (let i = 0; i < amount; i++) {
+  let arr = new Array(amount).fill('')
+  arr = arr.map((element, index) => {
+    return index + 1
+  })
+  return arr.map(() => {
     arr.push(...arr.splice(0, 1))
-    rezult[i] = arr.slice()
-  }
-
-  return rezult
+    return arr.slice()
+  })
 }
 
 export default pattern

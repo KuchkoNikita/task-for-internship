@@ -1,14 +1,38 @@
 'use strict'
 
-let singletonInstance = null
-class Singleton {
+export class SingletonES6 {
   constructor (name) {
-    if (!singletonInstance) {
-      singletonInstance = this
+    if (typeof SingletonES6.instance === 'object') {
+      return SingletonES6.instance
     }
     this.name = name
-    return singletonInstance
+    SingletonES6.instance = this
+    return this
   }
 }
 
-export default Singleton
+export const SingletonES5 = (function () {
+  let name
+  let instance
+
+  const getName = function () {
+    return name
+  }
+
+  const setName = function (str) {
+    name = str
+  }
+
+  const createInstance = function () {
+    return {
+      getName: getName,
+      setName: setName
+    }
+  }
+
+  return {
+    getInstance: function () {
+      return instance || (instance = createInstance())
+    }
+  }
+})()
