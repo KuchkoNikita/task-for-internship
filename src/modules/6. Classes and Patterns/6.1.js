@@ -11,28 +11,14 @@ export class SingletonES6 {
   }
 }
 
-export const SingletonES5 = (function () {
-  let name
-  let instance
+export function SingletonES5 (name) {
+  this.name = name
+  this.instance = null
+}
 
-  const getName = function () {
-    return name
+SingletonES5.getInstance = function (name) {
+  if (!this.instance) {
+    this.instance = new SingletonES5(name)
   }
-
-  const setName = function (str) {
-    name = str
-  }
-
-  const createInstance = function () {
-    return {
-      getName: getName,
-      setName: setName
-    }
-  }
-
-  return {
-    getInstance: function () {
-      return instance || (instance = createInstance())
-    }
-  }
-})()
+  return this.instance
+}

@@ -1,19 +1,16 @@
 'use strict'
 
 const countDuplicates = (text) => {
-  const myObj = {}
-  let counter = 0
-  text.split('').forEach((element) => {
-    element = element.toLowerCase()
-    if (!myObj[element]) {
-      myObj[element] = 1
-    } else if (myObj[element] < 2) {
-      myObj[element] += 1
-      counter++
-    }
-  })
-
-  return counter
+  return Object.values(
+    text
+      .split('')
+      .reduce((acc, element) => {
+        const letter = element.toLowerCase()
+        acc[letter] = acc[letter] || 0
+        acc[letter] += 1
+        return acc
+      }, {})
+  ).filter(arrayElement => arrayElement > 1).length
 }
 
 export default countDuplicates

@@ -14,7 +14,11 @@ const romanToNumber = (romanNumber) => {
   return romanNumber
     .split('')
     .map(element => romanNumbers[element])
-    .reduce((accumulator, currentValue, index, arr) => (index >= arr.indexOf(Math.max(...arr))) ? accumulator + currentValue : accumulator - currentValue, 0)
+    .reduce((acc, currentValue, index, selfArray) => (
+      (index >= selfArray.indexOf(Math.max(...selfArray)))
+        ? acc + currentValue
+        : acc - currentValue
+    ), 0)
 }
 
 export default romanToNumber

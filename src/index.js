@@ -211,11 +211,11 @@ console.groupEnd()
 const singleton1 = SingletonES5.getInstance()
 const singleton2 = SingletonES5.getInstance()
 
-singleton1.setName('Singleton')
+singleton1.name = 'Singleton'
 
 console.group('6.1 SingletonES5')
 console.log(singleton1 === singleton2)
-console.log(singleton2.getName())
+console.log(singleton2.name)
 console.groupEnd()
 
 // 6.2. Расширение String [просто]

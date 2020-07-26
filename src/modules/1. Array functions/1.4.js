@@ -1,14 +1,13 @@
 'use strict'
 
-const pattern = (amount) => {
-  let arr = new Array(amount).fill('')
-  arr = arr.map((element, index) => {
-    return index + 1
-  })
-  return arr.map(() => {
-    arr.push(...arr.splice(0, 1))
-    return arr.slice()
-  })
+const pattern = (n) => {
+  return Array
+    .from({ length: n }, (_, index) => index + 1)
+    .reduce((acc, value, index, arr) => {
+      arr.push(...arr.splice(0, 1))
+      acc[index] = arr.slice()
+      return acc
+    }, [])
 }
 
 export default pattern
