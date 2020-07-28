@@ -1,12 +1,14 @@
 'use strict'
 
-const pattern = (n) => {
+const pattern = (amount) => {
   return Array
-    .from({ length: n }, (_, index) => index + 1)
-    .reduce((acc, value, index, arr) => {
-      arr.push(...arr.splice(0, 1))
-      acc[index] = arr.slice()
-      return acc
+    .from({ length: amount }, (_, index) => index + 1)
+    .reduce((acc, value, index, selfArray) => {
+      return acc.concat([
+        selfArray
+          .slice(index, amount)
+          .concat(selfArray.slice(0, index))
+      ])
     }, [])
 }
 
